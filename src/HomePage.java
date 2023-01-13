@@ -46,6 +46,8 @@ public HomePage() {
         @Override
         public void actionPerformed(ActionEvent e) {
             BookStatusPage bookStatusPage=new BookStatusPage();
+            bookStatusPage.showBook();
+            bookStatusPage.showBook();
             bookStatusPage.setContentPane(bookStatusPage.BookStatuspanel);
             bookStatusPage.setBounds(100,200,400,300);
             bookStatusPage.show();
