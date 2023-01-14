@@ -29,7 +29,7 @@ public class HomePage extends JDialog {
         public void actionPerformed(ActionEvent e) {
             issueBookPage issueBookpage=new issueBookPage();
             issueBookpage.setContentPane(issueBookpage.IssueBookPanel);
-            issueBookpage.setBounds(100,200,400,300);
+            issueBookpage.setBounds(100,100,800,500);
             issueBookpage.show();
         }
     });
