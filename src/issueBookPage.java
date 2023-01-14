@@ -9,7 +9,7 @@ public class issueBookPage extends JDialog{
     public JPanel IssueBookPanel;
     private JTextField IDtext;
     private JTextField FullnameText;
-    private JComboBox DepartmentCmb;
+    private JComboBox<String> DepartmentCmb;
     private JTextField DateText;
     private JRadioButton maleRadioButton;
     private JRadioButton femaleRadioButton;
@@ -72,17 +72,35 @@ public class issueBookPage extends JDialog{
 
 
 
-             try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                   Connection  connection= DriverManager.getConnection("jdbc:mysql://localhost/librarydb","root","root");
-                   Statement statement=connection.createStatement();
-                   //ResultSet resultSet= statement.executeQuery("SELECT *FROM librarian WHERE username='"+username+"' and password='"+password+"'");
+                try {
 
-                } catch (ClassNotFoundException ex) {
-                    throw new RuntimeException(ex);
-                } catch (SQLException ex) {
+
+
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                   Connection connection= DriverManager.getConnection("jdbc:mysql://localhost/librarydb","root","root");
+                   Statement statement=connection.createStatement();
+                    //String mysql="INSERT INTO  + "values("++','+"++','"++"','"++"','"++"','"++")"
+                    String mysql="INSERT INTO students(id, fullname,sex,department,issue_date,book_name)" + "VALUES(?, ? ,? ,?,?,?)";
+                    PreparedStatement ps=connection.prepareStatement(mysql);
+                    ps.setString(1,ID);
+                    ps.setString(2,FullName);
+                    ps.setString(3,SelectedJRadioVal);
+                    ps.setString(4,SelectedComboVal);
+                    ps.setDate(5, java.sql.Date.valueOf(Date));
+                    ps.setString(6,IssuedBook);
+                    ps.executeUpdate();
+
+                    statement.close();
+                    ps.close();
+
+
+                    JOptionPane.showMessageDialog(IssueBookPanel,"Student information is added Successfully !");
+                    dispose();
+                    connection.close();
+                } catch (ClassNotFoundException | SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+
 
             }
         });

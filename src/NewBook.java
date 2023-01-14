@@ -43,7 +43,7 @@ public class NewBook extends JDialog {
                 ps.setString(4,Author);
                 ps.setString(5,ShelfNumber);
                 ps.setString(6,amount);
-                int addrows = ps.executeUpdate();
+                ps.executeUpdate();
 
                 statement.close();
                 ps.close();
