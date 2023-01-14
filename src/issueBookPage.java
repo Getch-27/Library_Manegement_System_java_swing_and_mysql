@@ -65,9 +65,14 @@ public class issueBookPage extends JDialog{
             public void actionPerformed(ActionEvent e) {
                 String  ID=IDtext.getText();
                 String FullName=FullnameText.getText();
+                String SelectedJRadioVal=maleRadioButton.isSelected() ? maleRadioButton.getText():femaleRadioButton.getText();
+                String SelectedComboVal=(String) DepartmentCmb.getSelectedItem();
+                String Date= DateText.getText();
+                String IssuedBook=StBookName.getText();
 
 
-                try {
+
+             try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                    Connection  connection= DriverManager.getConnection("jdbc:mysql://localhost/librarydb","root","root");
                    Statement statement=connection.createStatement();
