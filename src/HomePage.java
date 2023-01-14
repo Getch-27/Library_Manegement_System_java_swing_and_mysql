@@ -9,10 +9,11 @@ public class HomePage extends JDialog {
     private JButton bookReturnButton;
     private JButton bookStatusButton;
     private JButton logOutButton;
+    private JPanel menuPane;
+    private JLabel imge;
 
 
-
-public HomePage() {
+    public HomePage() {
     newBookButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -46,11 +47,12 @@ public HomePage() {
         @Override
         public void actionPerformed(ActionEvent e) {
             BookStatusPage bookStatusPage=new BookStatusPage();
-            bookStatusPage.showBook();
-            bookStatusPage.showBook();
             bookStatusPage.setContentPane(bookStatusPage.BookStatuspanel);
-            bookStatusPage.setBounds(100,200,400,300);
+            bookStatusPage.setBounds(100,200,800,300);
+            dispose();
             bookStatusPage.show();
+
+
         }
     });
     logOutButton.addActionListener(new ActionListener() {
