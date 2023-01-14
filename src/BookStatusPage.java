@@ -10,6 +10,7 @@ public class BookStatusPage extends JDialog{
     private JTable BookTable;
     private JButton Issued;
     private JButton issuedBooksButton;
+    private JButton studentsButton;
 
 
     Connection connection;
@@ -18,6 +19,7 @@ public class BookStatusPage extends JDialog{
     BookStatusPage() {
         String mysql = "SELECT id,title,subject,author,shelf_no,Quantity FROM books WHERE is_issued = 0 OR Quantity >0";
         String mysql2="SELECT id,title,subject,author,shelf_no,Quantity FROM books WHERE is_issued  =1  ";
+        String mysqlStudents="SELECT *FROM students ";
 
 
 
@@ -62,6 +64,25 @@ public class BookStatusPage extends JDialog{
                     throw new RuntimeException(ex);
                 }
 
+            }
+        });
+        studentsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    connection = DriverManager.getConnection("jdbc:mysql://localhost/librarydb", "root", "root");
+                    statement = connection.createStatement();
+                    resultSet = statement.executeQuery(mysqlStudents);
+                    DefaultTableModel t=BuildTable(resultSet);
+                    BookTable.setModel(t);
+
+                    statement.close();
+                    connection.close();
+                } catch (ClassNotFoundException | SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
