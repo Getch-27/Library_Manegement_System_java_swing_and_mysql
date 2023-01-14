@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -13,13 +14,9 @@ public class issueBookPage extends JDialog{
     private JRadioButton maleRadioButton;
     private JRadioButton femaleRadioButton;
     private JButton issueButton;
-    private JTextField SubjectText;
-    private JTextField AuthorTxet;
-    private JTextField ShelfNoText;
-    private JTextField QuantityText;
     private JTextField SearchText;
     private JButton SearchButton;
-    private JTextField IDtext;
+    private JTable SearchTable;
 
     public issueBookPage() {
     DepartmentCmb.addItem("Computer");
@@ -38,24 +35,15 @@ public class issueBookPage extends JDialog{
                   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/librarydb", "root", "root");
                   Statement statement = connection.createStatement();
                    ResultSet resultSet = statement.executeQuery(mysql);
+
+                    DefaultTableModel t=BuildTable(resultSet);
+                    SearchTable.setModel(t);
                    if(resultSet.next()){
-                       ResultSetMetaData metaData=resultSet.getMetaData();
-                       Vector<Object> Elements= new Vector<>();
-                       int columnCount=metaData.getColumnCount();
-                       for(int columnNumber=1;columnNumber<= columnCount;columnNumber++){
-                           Elements.add(resultSet.getObject(columnNumber));
-                       }
-                       IDtext.setText(String.valueOf((int) Elements.get(0)));
-                       SubjectText.setText((String) Elements.get(2));
-                       AuthorTxet.setText((String) Elements.get(3));
-                       ShelfNoText.setText(String.valueOf((int) Elements.get(4)));
-                       QuantityText.setText(String.valueOf((int) Elements.get(5)));
 
-                   }else {
                        JOptionPane.showMessageDialog(IssueBookPanel,"no such book");
+
+
                    }
-
-
                     statement.close();
                     connection.close();
                 } catch (ClassNotFoundException | SQLException ex) {
@@ -63,5 +51,27 @@ public class issueBookPage extends JDialog{
                 }
             }
         });
+    }
+    public static DefaultTableModel BuildTable(ResultSet resultSet) throws SQLException{
+        // to get meta data of the column (int,varchar.....)
+        ResultSetMetaData metaData=resultSet.getMetaData();
+        //vector declaration to store column name of the table from result set.
+        Vector<String> columnNames= new Vector<>();
+        int columnCount=metaData.getColumnCount();
+        for(int column=1;column <= columnCount;column++){
+            columnNames.add(metaData.getColumnName(column));
+        }
+        Vector<Vector<Object>> tableData =new Vector<>();
+        while (resultSet.next()){
+            Vector<Object> vector=new Vector<>();
+            for(int columnNumber=1;columnNumber<= columnCount;columnNumber++){
+                vector.add(resultSet.getObject(columnNumber));
+            }
+            tableData.add(vector);
+
+        }
+
+        return new DefaultTableModel(tableData,columnNames);
+
     }
 }

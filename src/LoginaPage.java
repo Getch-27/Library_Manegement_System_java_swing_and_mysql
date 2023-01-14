@@ -38,7 +38,7 @@ public LoginaPage() {
                   dispose();
                     HomePage homePage=new HomePage();
                     homePage.setContentPane(homePage.homepanel);
-                    homePage.setBounds(300,100,900,600);
+                    homePage.setBounds(300,100,700,600);
                     homePage.show();
                 }else{
                     JOptionPane.showMessageDialog(loginPanne,"dsf");

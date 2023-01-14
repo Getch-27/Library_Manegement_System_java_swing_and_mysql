@@ -10,7 +10,6 @@ public class HomePage extends JDialog {
     private JButton bookStatusButton;
     private JButton logOutButton;
     private JPanel menuPane;
-    private JLabel imge;
 
 
     public HomePage() {
@@ -29,7 +28,7 @@ public class HomePage extends JDialog {
         public void actionPerformed(ActionEvent e) {
             issueBookPage issueBookpage=new issueBookPage();
             issueBookpage.setContentPane(issueBookpage.IssueBookPanel);
-            issueBookpage.setBounds(100,100,800,500);
+            issueBookpage.setBounds(100,100,1200,500);
             issueBookpage.show();
         }
     });
