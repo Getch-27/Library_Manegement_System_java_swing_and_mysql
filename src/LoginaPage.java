@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-public class LoginPage extends JFrame{
+public class LoginaPage extends JFrame{
     private JTextField usernametxt;
     private JPasswordField passwordTxt;
     private JButton logInButton;
@@ -13,7 +13,7 @@ public class LoginPage extends JFrame{
     Statement statement;
     ResultSet resultSet;
 
-public LoginPage() {
+public LoginaPage() {
     resetButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -55,9 +55,9 @@ public LoginPage() {
 }
 
     public static void main(String[] args) {
-        LoginPage loginPage=new LoginPage();
-        loginPage.setContentPane(loginPage.loginPanne);
-        loginPage.setBounds(500,200,500,350);
-        loginPage.show();
+        LoginaPage loginaPage =new LoginaPage();
+        loginaPage.setContentPane(loginaPage.loginPanne);
+        loginaPage.setBounds(500,200,500,350);
+        loginaPage.show();
     }
 }
