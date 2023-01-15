@@ -5,26 +5,32 @@
     <constraints>
       <xy x="20" y="49" width="1074" height="534"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-13863757"/>
+    </properties>
     <border type="none"/>
     <children>
       <scrollpane id="fb79d">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="11" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16112057"/>
+          <font name="Chilanka" size="24" style="1"/>
+          <foreground color="-1"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="4ee7b" class="javax.swing.JTable" binding="BookTable">
             <constraints/>
             <properties>
-              <autoCreateRowSorter value="false"/>
+              <autoCreateRowSorter value="true"/>
               <autoResizeMode value="4"/>
-              <background color="-3750188"/>
-              <dropMode value="INSERT_COLS"/>
+              <background color="-13863757"/>
+              <dropMode value="USE_SELECTION"/>
               <fillsViewportHeight value="true"/>
-              <font name="Courier 10 Pitch" size="18" style="3"/>
-              <foreground color="-16777216"/>
+              <font name="Chilanka" size="18" style="0"/>
+              <foreground color="-1"/>
               <gridColor color="-15917742"/>
               <selectionForeground color="-4483328"/>
             </properties>
@@ -51,6 +57,9 @@
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-13863757"/>
+          <foreground color="-1"/>
+          <icon value="stack-of-books.png"/>
           <text value="Available Books"/>
         </properties>
       </component>
@@ -59,6 +68,8 @@
           <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-13863757"/>
+          <icon value="reading(1).png"/>
           <text value="Issued Books"/>
         </properties>
       </component>
@@ -67,6 +78,8 @@
           <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-13863757"/>
+          <icon value="student.png"/>
           <text value="Students"/>
         </properties>
       </component>
