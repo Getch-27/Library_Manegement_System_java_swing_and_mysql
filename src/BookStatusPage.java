@@ -11,6 +11,7 @@ public class BookStatusPage extends JDialog{
     private JButton Issued;
     private JButton issuedBooksButton;
     private JButton studentsButton;
+    private JButton homeButton;
 
 
     Connection connection;
@@ -83,6 +84,16 @@ public class BookStatusPage extends JDialog{
                 } catch (ClassNotFoundException | SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                HomePage homePage=new HomePage();
+                homePage.setContentPane(homePage.homepanel);
+                homePage.setBounds(200,100,900,600);
+                homePage.show();
             }
         });
     }

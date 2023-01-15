@@ -239,8 +239,10 @@
             </constraints>
             <properties>
               <background color="-13863757"/>
+              <font size="12" style="1"/>
+              <foreground color="-789517"/>
               <icon value="search(1).png"/>
-              <text value=""/>
+              <text value="Search"/>
             </properties>
           </component>
           <hspacer id="b6ad7">
@@ -278,7 +280,8 @@
             </constraints>
             <properties>
               <background color="-13863757"/>
-              <foreground color="-13863757"/>
+              <font size="12" style="1"/>
+              <foreground color="-1"/>
             </properties>
             <border type="none" title="Resalt"/>
             <children>
@@ -286,6 +289,10 @@
                 <constraints/>
                 <properties>
                   <background color="-13863757"/>
+                  <font size="12" style="1"/>
+                  <foreground color="-1"/>
+                  <gridColor color="-13863757"/>
+                  <selectionBackground color="-4739409"/>
                   <selectionForeground color="-14658923"/>
                 </properties>
               </component>

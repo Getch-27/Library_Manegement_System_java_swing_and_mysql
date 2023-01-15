@@ -41,21 +41,19 @@ public class issueBookPage extends JDialog{
                   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/librarydb", "root", "root");
                   Statement statement = connection.createStatement();
                    ResultSet resultSet = statement.executeQuery(mysql);
+                   DefaultTableModel t=BuildTable(resultSet);
+                    if(t.getDataVector().isEmpty()){
+                        JOptionPane.showMessageDialog(IssueBookPanel,"Sorry we have no such book");
 
-                    DefaultTableModel t=BuildTable(resultSet);
-                    StBookName.setText(String.valueOf(Searched));
-                    SearchTable.setModel(t);
-                     long millis=System.currentTimeMillis();
-                     java.sql.Date date=new java.sql.Date(millis);
-                    DateText.setText(String.valueOf(date));
-                   if(resultSet.next()){
-
-                       JOptionPane.showMessageDialog(IssueBookPanel,"no such book");
-
-
-                   }else{
-
-                   }
+                    }
+                    else{
+                        SearchTable.setModel(t);//draw the table.
+                        StBookName.setText(String.valueOf(Searched));
+                        //find current Date.
+                        long millis=System.currentTimeMillis();
+                        java.sql.Date date=new java.sql.Date(millis);
+                        DateText.setText(String.valueOf(date));
+                    }
                     statement.close();
                     connection.close();
                 } catch (ClassNotFoundException | SQLException ex) {

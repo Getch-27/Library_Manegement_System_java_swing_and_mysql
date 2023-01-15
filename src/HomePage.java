@@ -38,7 +38,7 @@ public class HomePage extends JFrame {
             dispose();
             BookReturnPage bookReturnPage=new BookReturnPage();
             bookReturnPage.setContentPane(bookReturnPage.BookReturnpanel);
-            bookReturnPage.setBounds(100,200,400,300);
+            bookReturnPage.setBounds(300,200,700,400);
             bookReturnPage.show();
 
         }
@@ -49,7 +49,7 @@ public class HomePage extends JFrame {
             dispose();
             BookStatusPage bookStatusPage=new BookStatusPage();
             bookStatusPage.setContentPane(bookStatusPage.BookStatuspanel);
-            bookStatusPage.setBounds(100,200,800,300);
+            bookStatusPage.setBounds(100,200,900,300);
             bookStatusPage.show();
 
 

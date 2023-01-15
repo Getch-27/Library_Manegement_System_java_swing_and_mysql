@@ -21,7 +21,7 @@
         <properties>
           <font name="DejaVu Sans Mono" size="36" style="1"/>
           <foreground color="-1"/>
-          <text value="HomePage"/>
+          <text value="Home"/>
         </properties>
       </component>
       <component id="54888" class="javax.swing.JButton" binding="issueBookButton" default-binding="true">

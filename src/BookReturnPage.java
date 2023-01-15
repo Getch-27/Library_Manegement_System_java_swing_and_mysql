@@ -12,6 +12,7 @@ public class BookReturnPage extends JDialog{
     private JButton returnButton;
     private JScrollPane StudentScrolp;
     private JTable StudentTable;
+    private JButton homeButton;
     private String bookName;
 
     public BookReturnPage() {
@@ -27,14 +28,14 @@ public class BookReturnPage extends JDialog{
                 ResultSet resultSet = statement.executeQuery(mysql);
                 //String BookName=(String) resultSet.getObject(6);
                 DefaultTableModel t=BuildTable(resultSet);
-                StudentTable.setModel(t);
-                if(resultSet.next()){
 
-                    JOptionPane.showMessageDialog(BookReturnpanel,"no such book");
+                if(t.getDataVector().isEmpty()){
+
+                    JOptionPane.showMessageDialog(BookReturnpanel,"Student Information is not exist !");
 
 
                 }else{
-
+                    StudentTable.setModel(t);
                 }
                 statement.close();
                 connection.close();
@@ -59,10 +60,20 @@ public class BookReturnPage extends JDialog{
                     JOptionPane.showMessageDialog(BookReturnpanel,"Book Returned Successfully!!");
                     ps.close();
                     connection.close();
-                    dispose();
+
                 } catch (ClassNotFoundException | SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                HomePage homePage=new HomePage();
+                homePage.setContentPane(homePage.homepanel);
+                homePage.setBounds(200,100,900,600);
+                homePage.show();
             }
         });
     }
