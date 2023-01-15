@@ -49,7 +49,7 @@ public class HomePage extends JFrame {
             dispose();
             BookStatusPage bookStatusPage=new BookStatusPage();
             bookStatusPage.setContentPane(bookStatusPage.BookStatuspanel);
-            bookStatusPage.setBounds(100,200,900,300);
+            bookStatusPage.setBounds(100,200,1000,400);
             bookStatusPage.show();
 
 

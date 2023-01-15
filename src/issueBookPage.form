@@ -186,13 +186,14 @@
           </component>
           <component id="ba888" class="javax.swing.JButton" binding="homeButton" default-binding="true">
             <constraints>
-              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <maximum-size width="100" height="50"/>
               </grid>
             </constraints>
             <properties>
               <background color="-13863757"/>
               <foreground color="-1"/>
+              <icon value="Back.png"/>
               <text value="Home"/>
             </properties>
           </component>

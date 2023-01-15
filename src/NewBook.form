@@ -180,6 +180,7 @@
         <properties>
           <background color="-13863757"/>
           <foreground color="-1"/>
+          <icon value="Back.png"/>
           <text value="Home"/>
         </properties>
       </component>
