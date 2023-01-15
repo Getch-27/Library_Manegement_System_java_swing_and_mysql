@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
-public class LoginaPage extends JDialog{
+public class LoginaPage extends JFrame{
     private JTextField usernametxt;
     private JPasswordField passwordTxt;
     private JButton logInButton;
@@ -57,7 +57,7 @@ public LoginaPage() {
     public static void main(String[] args) {
         LoginaPage loginaPage=new LoginaPage();
         loginaPage.setContentPane(loginaPage.loginPanne);
-        loginaPage.setBounds(100,200,400,300);
+        loginaPage.setBounds(500,200,500,350);
         loginaPage.show();
     }
 }
