@@ -2,14 +2,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HomePage extends JDialog {
+public class HomePage extends JFrame {
     public JPanel homepanel;
     private JButton newBookButton;
     private JButton issueBookButton;
     private JButton bookReturnButton;
     private JButton bookStatusButton;
     private JButton logOutButton;
-    private JPanel menuPane;
 
 
     public HomePage() {
