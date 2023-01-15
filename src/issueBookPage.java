@@ -18,11 +18,14 @@ public class issueBookPage extends JDialog{
     private JButton SearchButton;
     private JTable SearchTable;
     private JTextField StBookName;
+    private JButton homeButton;
 
     public issueBookPage() {
-    DepartmentCmb.addItem("Computer");
+    DepartmentCmb.addItem("Computer Science");
     DepartmentCmb.addItem("Accounting");
-    DepartmentCmb.addItem("Managment");
+    DepartmentCmb.addItem("Management");
+    DepartmentCmb.addItem("Hospitality and Tourism");
+    DepartmentCmb.addItem("Marketing Management");
        ButtonGroup group=new ButtonGroup();
        group.add(maleRadioButton);
        group.add(femaleRadioButton);
@@ -69,39 +72,50 @@ public class issueBookPage extends JDialog{
                 String SelectedComboVal=(String) DepartmentCmb.getSelectedItem();
                 String Date= DateText.getText();
                 String IssuedBook=StBookName.getText();
+                if(ID.isEmpty() || FullName.isEmpty() || SelectedJRadioVal.isEmpty() || SelectedComboVal.isEmpty()){
+                    JOptionPane.showMessageDialog(IssueBookPanel,"Please fill all fields");
+                }else {
 
 
-
-                try {
-
+                    try {
 
 
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                   Connection connection= DriverManager.getConnection("jdbc:mysql://localhost/librarydb","root","root");
-                   Statement statement=connection.createStatement();
-                    //String mysql="INSERT INTO  + "values("++','+"++','"++"','"++"','"++"','"++")"
-                    String mysql="INSERT INTO students(id, fullname,sex,department,issue_date,book_name)" + "VALUES(?, ? ,? ,?,?,?)";
-                    PreparedStatement ps=connection.prepareStatement(mysql);
-                    ps.setString(1,ID);
-                    ps.setString(2,FullName);
-                    ps.setString(3,SelectedJRadioVal);
-                    ps.setString(4,SelectedComboVal);
-                    ps.setDate(5, java.sql.Date.valueOf(Date));
-                    ps.setString(6,IssuedBook);
-                    ps.executeUpdate();
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/librarydb", "root", "root");
+                        Statement statement = connection.createStatement();
+                        //String mysql="INSERT INTO  + "values("++','+"++','"++"','"++"','"++"','"++")"
+                        String mysql = "INSERT INTO students(id, fullname,sex,department,issue_date,book_name)" + "VALUES(?, ? ,? ,?,?,?)";
+                        PreparedStatement ps = connection.prepareStatement(mysql);
+                        ps.setString(1, ID);
+                        ps.setString(2, FullName);
+                        ps.setString(3, SelectedJRadioVal);
+                        ps.setString(4, SelectedComboVal);
+                        ps.setDate(5, java.sql.Date.valueOf(Date));
+                        ps.setString(6, IssuedBook);
+                        ps.executeUpdate();
 
-                    statement.close();
-                    ps.close();
+                        statement.close();
+                        ps.close();
 
 
-                    JOptionPane.showMessageDialog(IssueBookPanel,"Student information is added Successfully !");
-                    dispose();
-                    connection.close();
-                } catch (ClassNotFoundException | SQLException ex) {
-                    throw new RuntimeException(ex);
+                        JOptionPane.showMessageDialog(IssueBookPanel, "Student information is added Successfully !");
+                        dispose();
+                        connection.close();
+                    } catch (ClassNotFoundException | SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
                 }
-
-
+            }
+        });
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                HomePage homePage=new HomePage();
+                homePage.setContentPane(homePage.homepanel);
+                homePage.setBounds(200,100,900,600);
+                homePage.show();
             }
         });
     }

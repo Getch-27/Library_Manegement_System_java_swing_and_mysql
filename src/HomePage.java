@@ -15,16 +15,17 @@ public class HomePage extends JFrame {
     newBookButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            dispose();
             NewBook newBook= new NewBook();
-
             newBook.setContentPane(newBook.NewBookPanel);
-            newBook.setBounds(100,200,400,300);
+            newBook.setBounds(400,200,600,400);
             newBook.show();
         }
     });
     issueBookButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            dispose();
             issueBookPage issueBookpage=new issueBookPage();
             issueBookpage.setContentPane(issueBookpage.IssueBookPanel);
             issueBookpage.setBounds(100,100,1200,500);
@@ -34,6 +35,7 @@ public class HomePage extends JFrame {
     bookReturnButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            dispose();
             BookReturnPage bookReturnPage=new BookReturnPage();
             bookReturnPage.setContentPane(bookReturnPage.BookReturnpanel);
             bookReturnPage.setBounds(100,200,400,300);
@@ -44,10 +46,10 @@ public class HomePage extends JFrame {
     bookStatusButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            dispose();
             BookStatusPage bookStatusPage=new BookStatusPage();
             bookStatusPage.setContentPane(bookStatusPage.BookStatuspanel);
             bookStatusPage.setBounds(100,200,800,300);
-            dispose();
             bookStatusPage.show();
 
 
